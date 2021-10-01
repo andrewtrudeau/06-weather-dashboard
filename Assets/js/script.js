@@ -4,14 +4,14 @@ const apiKey = "77a5f5e9021668e3908aa9d8669df015"
 
 var cityNames = [];
 
-if (localStorage.getItem("cityNames")) {
+// if (localStorage.getItem("cityNames")) {
 
-    cityNames = localStorage.getItem("cityNames").split(',');
+//     cityNames = localStorage.getItem("cityNames").split(',');
 
-    for (let i = 0; i < cityNames.length; i++)
-        addCityButton(cityNames[i]);
+//     for (let i = 0; i < cityNames.length; i++)
+//         addCityButton(cityNames[i]);
 
-}
+// }
 
 //////////////////////
 // Helper Functions //
@@ -186,7 +186,6 @@ function getWeather(cityName) {
 
     var queryURLForecast = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityName +
         "&appid=" + apiKey;
-
 
     fetch(queryURLForecast).then(response => response.json())
         .then(data => {
