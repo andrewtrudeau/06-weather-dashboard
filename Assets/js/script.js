@@ -30,7 +30,7 @@ let toTitleCase = (str) => {
 
 // The API gives us a code and a url to get the image given the code //
 
-let getIconURL = code => `http://openweathermap.org/img/wn/${code}@2x.png`;
+let getIconURL = code => `https://openweathermap.org/img/wn/${code}@2x.png`;
 
 // The api gives us an ugly date, but we can fix that //
 
@@ -184,7 +184,7 @@ function buildForecast(data, uvi) {
 
 function getWeather(cityName) {
 
-    var queryURLForecast = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityName +
+    var queryURLForecast = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName +
         "&appid=" + apiKey;
 
     fetch(queryURLForecast).then(response => response.json())
