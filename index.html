@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <title>Weather Forecast</title>
+</head>
+
+<nav>
+
+    <!-- Fun icon -->
+
+    <img src="./Assets/icon.png" alt="Logo image" class="logo">
+
+    <!-- Form to search for a location -->
+
+    <div class="searchWrapper">
+        <form action="">
+            <input class="input" id="cityInput" type="text" id="fname" name="fname" value=""
+                placeholder=" Enter City Name">
+            <input class="input" id="submit" type="submit" value="Submit">
+        </form>
+    </div>
+
+    <!-- Hover to list saved locations -->
+
+    <div class="dropdown">
+        <button class="dropbtn">Cities <span class="fas fa-caret-down"></span></button>
+        <div class="dropdown-content" id="drop-down">
+        </div>
+    </div>
+
+</nav>
+
+<body>
+
+    <!-- Location name -->
+
+    <h1 class=sectionTitle id="location">Place</h1>
+
+    <!-- Large card -->
+
+    <div class="card" id="largeCard"></div>
+
+    <!-- 5 day forecast title -->
+
+    <h1 class="sectionTitle">5 Fay Forecast</h1>
+
+    <!-- 5 day forecast wrapper -->
+
+    <div id="fiveDay"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script src="./Assets/js/script.js"></script>
+
+</body>
+
+</html>
