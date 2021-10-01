@@ -187,15 +187,21 @@ function getWeather(cityName) {
     var queryURLForecast = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName +
         "&appid=" + apiKey;
 
-    fetch(queryURLForecast).then(response => response.json())
-        .then(data => {
-            if (data.cod != 404) {
+    fetch(queryURLForecast).then(response => {
+
+        if (response.ok) {
+            response.json().then(data => {
 
                 fetch(queryUVI(data.city.coord.lat, data.city.coord.lon))
-                    .then(res => res.json())
-                    .then(dataUV => {
+                    .then(res => {
+                        if (res.ok) {
+                            res.json().then(dataUV => {
 
-                        buildForecast(data, dataUV.current.uvi);
+                                buildForecast(data, dataUV.current.uvi);
+
+                            });
+                        } else
+                            hideData();
 
                     });
 
@@ -204,14 +210,10 @@ function getWeather(cityName) {
 
                 // Add city data to local storage 
                 addCity(cityName);
-
-            } else
-                hideData();
-
-        });
-
-
-
+            });
+        } else
+            hideData();
+    });
 }
 
 // Click the submit button to access that location's data //
@@ -227,4 +229,3 @@ $("#submit").click((event) => {
 // Hide data on page load //
 
 hideData();
-

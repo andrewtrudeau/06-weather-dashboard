@@ -34,21 +34,23 @@ function buildForecast(data, uvi) {
 ```
 Here is some information on how I fetched data from the API. ```showData``` & ```hideData``` are used to show and hide cards when data is invalid or when page is starting up.
 ```JavaScript
-fetch(queryURLForecast).then(response => response.json())
-    .then(data => {
-        if (data.cod != 404) { // Check location is valid
+fetch(queryURLForecast).then(response => {
+
+    if (response.ok) {
+        response.json().then(data => {
 
             buildForecast(/* Data from fetch */);
 
-            // Display location on page
+            // Update HTML h1 to location name
             $("#location").text(toTitleCase(cityName));
 
             // Add city data to local storage 
             addCity(cityName);
-
+            
+            });
         } else
             hideData();
-
+    });
 });
 ```
 
